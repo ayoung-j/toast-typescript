@@ -1,35 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Toast from "./components/Toast";
+import { showToast } from "./showToast";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <div className="h-screen flex flex-col text-center align-middle justify-center">
+            <div>
+                <h1 className="text-5xl font-bold mb-10">React Event Bus Toast Example</h1>
+                <button
+                    className="inline-block rounded-lg font-medium p-3 bg-slate-500 hover:bg-slate-700 text-white transition-all"
+                    onClick={() => showToast("This is a toast message!")}>
+                    Show Toast
+                </button>
+            </div>
+            <Toast />
+        </div>
+    );
 }
 
-export default App
+export default App;
